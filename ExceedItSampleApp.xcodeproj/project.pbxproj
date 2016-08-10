@@ -15,6 +15,17 @@
 		8C33CD6F1D5B12D800995ED4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C33CD6D1D5B12D800995ED4 /* LaunchScreen.storyboard */; };
 		8C33CD7A1D5B12D800995ED4 /* ExceedItSampleAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C33CD791D5B12D800995ED4 /* ExceedItSampleAppTests.m */; };
 		8C33CD851D5B12D800995ED4 /* ExceedItSampleAppUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C33CD841D5B12D800995ED4 /* ExceedItSampleAppUITests.m */; };
+		8C33CDD31D5B1DCC00995ED4 /* UserTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C33CDD21D5B1DCC00995ED4 /* UserTableViewCell.m */; };
+		8C33CDD51D5B1DDD00995ED4 /* UserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C33CDD41D5B1DDD00995ED4 /* UserCell.xib */; };
+		8C33CDD81D5B23AB00995ED4 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C33CDD71D5B23AB00995ED4 /* User.m */; };
+		8C33CDDB1D5B2B3C00995ED4 /* UserPostsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C33CDDA1D5B2B3C00995ED4 /* UserPostsViewController.m */; };
+		8C33CDDE1D5B317D00995ED4 /* PostTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C33CDDD1D5B317D00995ED4 /* PostTableViewCell.m */; };
+		8C33CDE01D5B318D00995ED4 /* PostCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C33CDDF1D5B318D00995ED4 /* PostCell.xib */; };
+		8C33CDE31D5B324C00995ED4 /* Post.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C33CDE21D5B324C00995ED4 /* Post.m */; };
+		8C33CDE61D5B35FE00995ED4 /* CommentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C33CDE51D5B35FE00995ED4 /* CommentsViewController.m */; };
+		8C33CDE91D5B390100995ED4 /* CommentsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C33CDE81D5B390100995ED4 /* CommentsTableViewCell.m */; };
+		8C33CDEB1D5B391000995ED4 /* CommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C33CDEA1D5B391000995ED4 /* CommentCell.xib */; };
+		8C33CDEE1D5B39EA00995ED4 /* Comment.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C33CDED1D5B39EA00995ED4 /* Comment.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +62,25 @@
 		8C33CD801D5B12D800995ED4 /* ExceedItSampleAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ExceedItSampleAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C33CD841D5B12D800995ED4 /* ExceedItSampleAppUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExceedItSampleAppUITests.m; sourceTree = "<group>"; };
 		8C33CD861D5B12D800995ED4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8C33CDD11D5B1DCC00995ED4 /* UserTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserTableViewCell.h; sourceTree = "<group>"; };
+		8C33CDD21D5B1DCC00995ED4 /* UserTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserTableViewCell.m; sourceTree = "<group>"; };
+		8C33CDD41D5B1DDD00995ED4 /* UserCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserCell.xib; sourceTree = "<group>"; };
+		8C33CDD61D5B23AB00995ED4 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		8C33CDD71D5B23AB00995ED4 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		8C33CDD91D5B2B3C00995ED4 /* UserPostsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserPostsViewController.h; sourceTree = "<group>"; };
+		8C33CDDA1D5B2B3C00995ED4 /* UserPostsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserPostsViewController.m; sourceTree = "<group>"; };
+		8C33CDDC1D5B317D00995ED4 /* PostTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostTableViewCell.h; sourceTree = "<group>"; };
+		8C33CDDD1D5B317D00995ED4 /* PostTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostTableViewCell.m; sourceTree = "<group>"; };
+		8C33CDDF1D5B318D00995ED4 /* PostCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostCell.xib; sourceTree = "<group>"; };
+		8C33CDE11D5B324C00995ED4 /* Post.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Post.h; sourceTree = "<group>"; };
+		8C33CDE21D5B324C00995ED4 /* Post.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Post.m; sourceTree = "<group>"; };
+		8C33CDE41D5B35FE00995ED4 /* CommentsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentsViewController.h; sourceTree = "<group>"; };
+		8C33CDE51D5B35FE00995ED4 /* CommentsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentsViewController.m; sourceTree = "<group>"; };
+		8C33CDE71D5B390100995ED4 /* CommentsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentsTableViewCell.h; sourceTree = "<group>"; };
+		8C33CDE81D5B390100995ED4 /* CommentsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentsTableViewCell.m; sourceTree = "<group>"; };
+		8C33CDEA1D5B391000995ED4 /* CommentCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommentCell.xib; sourceTree = "<group>"; };
+		8C33CDEC1D5B39EA00995ED4 /* Comment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Comment.h; sourceTree = "<group>"; };
+		8C33CDED1D5B39EA00995ED4 /* Comment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Comment.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +135,25 @@
 				8C33CD631D5B12D800995ED4 /* AppDelegate.m */,
 				8C33CD651D5B12D800995ED4 /* ViewController.h */,
 				8C33CD661D5B12D800995ED4 /* ViewController.m */,
+				8C33CDD61D5B23AB00995ED4 /* User.h */,
+				8C33CDD71D5B23AB00995ED4 /* User.m */,
+				8C33CDD11D5B1DCC00995ED4 /* UserTableViewCell.h */,
+				8C33CDD21D5B1DCC00995ED4 /* UserTableViewCell.m */,
+				8C33CDD41D5B1DDD00995ED4 /* UserCell.xib */,
+				8C33CDD91D5B2B3C00995ED4 /* UserPostsViewController.h */,
+				8C33CDDA1D5B2B3C00995ED4 /* UserPostsViewController.m */,
+				8C33CDE11D5B324C00995ED4 /* Post.h */,
+				8C33CDE21D5B324C00995ED4 /* Post.m */,
+				8C33CDDF1D5B318D00995ED4 /* PostCell.xib */,
+				8C33CDDC1D5B317D00995ED4 /* PostTableViewCell.h */,
+				8C33CDDD1D5B317D00995ED4 /* PostTableViewCell.m */,
+				8C33CDE41D5B35FE00995ED4 /* CommentsViewController.h */,
+				8C33CDE51D5B35FE00995ED4 /* CommentsViewController.m */,
+				8C33CDEC1D5B39EA00995ED4 /* Comment.h */,
+				8C33CDED1D5B39EA00995ED4 /* Comment.m */,
+				8C33CDEA1D5B391000995ED4 /* CommentCell.xib */,
+				8C33CDE71D5B390100995ED4 /* CommentsTableViewCell.h */,
+				8C33CDE81D5B390100995ED4 /* CommentsTableViewCell.m */,
 				8C33CD681D5B12D800995ED4 /* Main.storyboard */,
 				8C33CD6B1D5B12D800995ED4 /* Assets.xcassets */,
 				8C33CD6D1D5B12D800995ED4 /* LaunchScreen.storyboard */,
@@ -243,7 +292,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C33CDD51D5B1DDD00995ED4 /* UserCell.xib in Resources */,
 				8C33CD6F1D5B12D800995ED4 /* LaunchScreen.storyboard in Resources */,
+				8C33CDE01D5B318D00995ED4 /* PostCell.xib in Resources */,
+				8C33CDEB1D5B391000995ED4 /* CommentCell.xib in Resources */,
 				8C33CD6C1D5B12D800995ED4 /* Assets.xcassets in Resources */,
 				8C33CD6A1D5B12D800995ED4 /* Main.storyboard in Resources */,
 			);
@@ -270,9 +322,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C33CDD81D5B23AB00995ED4 /* User.m in Sources */,
+				8C33CDD31D5B1DCC00995ED4 /* UserTableViewCell.m in Sources */,
 				8C33CD671D5B12D800995ED4 /* ViewController.m in Sources */,
+				8C33CDEE1D5B39EA00995ED4 /* Comment.m in Sources */,
+				8C33CDDE1D5B317D00995ED4 /* PostTableViewCell.m in Sources */,
 				8C33CD641D5B12D800995ED4 /* AppDelegate.m in Sources */,
+				8C33CDE91D5B390100995ED4 /* CommentsTableViewCell.m in Sources */,
+				8C33CDE61D5B35FE00995ED4 /* CommentsViewController.m in Sources */,
 				8C33CD611D5B12D800995ED4 /* main.m in Sources */,
+				8C33CDDB1D5B2B3C00995ED4 /* UserPostsViewController.m in Sources */,
+				8C33CDE31D5B324C00995ED4 /* Post.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
