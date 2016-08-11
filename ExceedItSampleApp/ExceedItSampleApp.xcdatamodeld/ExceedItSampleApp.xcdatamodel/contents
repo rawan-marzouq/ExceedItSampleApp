@@ -34,12 +34,9 @@
         <relationship name="address" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Address" inverseName="users" inverseEntity="Address" syncable="YES"/>
         <relationship name="company" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Company" inverseName="users" inverseEntity="Company" syncable="YES"/>
         <relationship name="posts" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Post" inverseName="user" inverseEntity="Post" syncable="YES"/>
-        <fetchedProperty name="addressObj" optional="YES" syncable="YES">
-            <fetchRequest name="fetchedPropertyFetchRequest" entity="User" predicateString="ANY addresses.user == $FETCH_SOURCE"/>
-        </fetchedProperty>
     </entity>
     <elements>
-        <element name="User" positionX="-54" positionY="162" width="128" height="176"/>
+        <element name="User" positionX="-54" positionY="162" width="128" height="148"/>
         <element name="Post" positionX="-270" positionY="153" width="128" height="118"/>
         <element name="Comment" positionX="-272" positionY="324" width="128" height="103"/>
         <element name="Company" positionX="169" positionY="252" width="128" height="103"/>
