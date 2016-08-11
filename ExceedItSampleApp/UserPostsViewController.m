@@ -35,10 +35,24 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [self deleteAllEntities:@"Post"];
+    [self GetUserPosts];
     
 }
--(void)viewDidAppear:(BOOL)animated{
-    [self GetUserPosts];
+- (void)deleteAllEntities:(NSString *)nameEntity
+{
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:nameEntity];
+    [fetchRequest setIncludesPropertyValues:NO]; //only fetch the managedObjectID
+    
+    NSError *error;
+    NSArray *fetchedObjects = [[self managedObjectContext] executeFetchRequest:fetchRequest error:&error];
+    for (NSManagedObject *object in fetchedObjects)
+    {
+        [[self managedObjectContext] deleteObject:object];
+    }
+    
+    error = nil;
+    [[self managedObjectContext] save:&error];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

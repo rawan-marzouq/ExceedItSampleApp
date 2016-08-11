@@ -39,11 +39,26 @@
     // Do any additional setup after loading the view.
     self.postTitle.text = self.post.title;
     self.postBody.text = self.post.body;
+    [self deleteAllEntities:@"Comment"];
     
     // Load Post's comments
     [self GetPostComments];
 }
-
+- (void)deleteAllEntities:(NSString *)nameEntity
+{
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:nameEntity];
+    [fetchRequest setIncludesPropertyValues:NO]; //only fetch the managedObjectID
+    
+    NSError *error;
+    NSArray *fetchedObjects = [[self managedObjectContext] executeFetchRequest:fetchRequest error:&error];
+    for (NSManagedObject *object in fetchedObjects)
+    {
+        [[self managedObjectContext] deleteObject:object];
+    }
+    
+    error = nil;
+    [[self managedObjectContext] save:&error];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

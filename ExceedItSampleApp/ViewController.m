@@ -12,6 +12,8 @@
 #import "UserPostsViewController.h"
 #import "Company.h"
 #import "Address.h"
+#import "AppDelegate.h"
+
 
 @interface ViewController ()<UITableViewDelegate,UITableViewDataSource>
 {
@@ -36,10 +38,26 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-}
-
--(void)viewDidAppear:(BOOL)animated{
+    [self deleteAllEntities:@"User"];
+    [self deleteAllEntities:@"Address"];
+    [self deleteAllEntities:@"Company"];
     [self GetUsersList];
+    
+}
+- (void)deleteAllEntities:(NSString *)nameEntity
+{
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:nameEntity];
+    [fetchRequest setIncludesPropertyValues:NO]; //only fetch the managedObjectID
+    
+    NSError *error;
+    NSArray *fetchedObjects = [[self managedObjectContext] executeFetchRequest:fetchRequest error:&error];
+    for (NSManagedObject *object in fetchedObjects)
+    {
+        [[self managedObjectContext] deleteObject:object];
+    }
+    
+    error = nil;
+    [[self managedObjectContext] save:&error];
 }
 
 - (void)didReceiveMemoryWarning {
