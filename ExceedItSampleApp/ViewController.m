@@ -10,6 +10,8 @@
 #import "UserTableViewCell.h"
 #import "User.h"
 #import "UserPostsViewController.h"
+#import "Company.h"
+#import "Address.h"
 
 @interface ViewController ()<UITableViewDelegate,UITableViewDataSource>
 {
@@ -19,7 +21,17 @@
 
 @end
 
+
 @implementation ViewController
+
+- (NSManagedObjectContext *)managedObjectContext {
+    NSManagedObjectContext *context = nil;
+    id delegate = [[UIApplication sharedApplication] delegate];
+    if ([delegate performSelector:@selector(managedObjectContext)]) {
+        context = [delegate managedObjectContext];
+    }
+    return context;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -64,24 +76,53 @@
                 // Handle Error and return
                 return;
             }
-            
+            NSManagedObjectContext *context = [self managedObjectContext];
             // Users
             NSArray *usersData = jsonObjects;
             for (int i=0; i < [usersData count]; i++) {
                 NSDictionary *user = (NSDictionary*) [usersData objectAtIndex:i];
                 NSLog(@"user name: %@", [user objectForKey:@"username"]);
-                User *userObj = [[User alloc]init];
-                userObj.userId = [user objectForKey:@"id"];
-                userObj.name = [user objectForKey:@"name"];
-                userObj.phone = [user objectForKey:@"phone"];
-                userObj.email = [user objectForKey:@"email"];
-                userObj.company = [[user objectForKey:@"company"] objectForKey:@"name"];
-                userObj.suite = [[user objectForKey:@"address"] objectForKey:@"suite"];
-                userObj.street = [[user objectForKey:@"address"] objectForKey:@"street"];
-                userObj.city = [[user objectForKey:@"address"] objectForKey:@"city"];
-                [usersArray addObject:userObj];
+                
+                
+                
+                // Create a new user managed object
+                NSManagedObject *userMO = [NSEntityDescription insertNewObjectForEntityForName:@"User" inManagedObjectContext:context];
+                [userMO setValue:[user objectForKey:@"name"] forKey:@"name"];
+                [userMO setValue:[user objectForKey:@"phone"] forKey:@"phone"];
+                [userMO setValue:[user objectForKey:@"email"] forKey:@"email"];
+                [userMO setValue:[[user objectForKey:@"id"] stringValue] forKey:@"userId"];
+                
+                
+                // Create a new company managed object
+                NSManagedObject *companyMO = [NSEntityDescription insertNewObjectForEntityForName:@"Company" inManagedObjectContext:context];
+                [companyMO setValue:[[user objectForKey:@"company"] objectForKey:@"name"] forKey:@"name"];
+
+                // Add user to company
+                [companyMO setValue:[NSSet setWithObject:userMO] forKey:@"users"];
+                
+                // Create a new address managed object
+                NSManagedObject *addressMO = [NSEntityDescription insertNewObjectForEntityForName:@"Address" inManagedObjectContext:context];
+                [addressMO setValue:[[user objectForKey:@"address"] objectForKey:@"city"] forKey:@"city"];
+                [addressMO setValue:[[user objectForKey:@"address"] objectForKey:@"street"] forKey:@"street"];
+                [addressMO setValue:[[user objectForKey:@"address"] objectForKey:@"suite"] forKey:@"suite"];
+                [addressMO setValue:[[user objectForKey:@"address"] objectForKey:@"zipcode"] forKey:@"zipcode"];
+                
+                // Add user to address
+                [addressMO setValue:[NSSet setWithObject:userMO] forKey:@"users"];
+                
+                NSError *error = nil;
+                // Save the object to persistent store
+                if (![context save:&error]) {
+                    NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
+                }
+                
             }
             dispatch_async(dispatch_get_main_queue(), ^{
+                // Fetch the devices from persistent data store
+                NSManagedObjectContext *managedObjectContext = [self managedObjectContext];
+                NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"User"];
+                usersArray = [[managedObjectContext executeFetchRequest:fetchRequest error:nil] mutableCopy];
+                
                 // Reload users table content
                 [_usersTable reloadData];
             });
@@ -132,10 +173,29 @@
         cell.name.text = userObj.name;
         cell.phone.text = userObj.phone;
         cell.email.text = userObj.email;
-        cell.company.text = userObj.company;
-        cell.suite.text = userObj.suite;
-        cell.street.text = userObj.street;
-        cell.city.text = userObj.city;
+        Company *compObj = userObj.company;
+        NSManagedObjectContext *context = [self managedObjectContext];
+        
+        // Get Companies
+        NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Company"];
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"ANY users.company == %@", compObj];
+        [request setPredicate:predicate];
+        NSArray *companies = [context executeFetchRequest:request error:nil];
+        Company *comp = (Company*)[companies objectAtIndex:0];
+        cell.company.text = comp.name;
+        
+        // Get Addresses
+        Address *addrObj = userObj.address;
+        request = [NSFetchRequest fetchRequestWithEntityName:@"Address"];
+        predicate = [NSPredicate predicateWithFormat:@"ANY users.address == %@", addrObj];
+        [request setPredicate:predicate];
+        NSMutableArray *addresses = [[context executeFetchRequest:request error:nil]mutableCopy];
+        NSLog(@"addresses: %@",addresses);
+        Address *addr = (Address*)[addresses objectAtIndex:0];
+        
+        cell.suite.text = addr.suite;
+        cell.street.text = addr.street;
+        cell.city.text = addr.city;
         
     }
 
@@ -155,7 +215,7 @@
     User *selUser = (User*)[usersArray objectAtIndex:indexPath.row ];
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     UserPostsViewController *postsVC = [sb instantiateViewControllerWithIdentifier:@"UserPosts"];
-    postsVC.userId = selUser.userId;
+    postsVC.user = selUser;
     [self.navigationController pushViewController:postsVC animated:YES];
 }
 @end

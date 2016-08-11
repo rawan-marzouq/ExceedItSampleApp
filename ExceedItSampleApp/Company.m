@@ -1,15 +1,15 @@
 //
-//  Comment.m
+//  Company.m
 //  ExceedItSampleApp
 //
 //  Created by Rawan Marzouq on 8/11/16.
 //  Copyright © 2016 Rawan. All rights reserved.
 //
 
-#import "Comment.h"
-#import "Post.h"
+#import "Company.h"
+#import "User.h"
 
-@implementation Comment
+@implementation Company
 
 // Insert code here to add functionality to your managed object subclass
 

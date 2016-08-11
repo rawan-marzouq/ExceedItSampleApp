@@ -17,15 +17,24 @@
 		8C33CD851D5B12D800995ED4 /* ExceedItSampleAppUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C33CD841D5B12D800995ED4 /* ExceedItSampleAppUITests.m */; };
 		8C33CDD31D5B1DCC00995ED4 /* UserTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C33CDD21D5B1DCC00995ED4 /* UserTableViewCell.m */; };
 		8C33CDD51D5B1DDD00995ED4 /* UserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C33CDD41D5B1DDD00995ED4 /* UserCell.xib */; };
-		8C33CDD81D5B23AB00995ED4 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C33CDD71D5B23AB00995ED4 /* User.m */; };
 		8C33CDDB1D5B2B3C00995ED4 /* UserPostsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C33CDDA1D5B2B3C00995ED4 /* UserPostsViewController.m */; };
 		8C33CDDE1D5B317D00995ED4 /* PostTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C33CDDD1D5B317D00995ED4 /* PostTableViewCell.m */; };
 		8C33CDE01D5B318D00995ED4 /* PostCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C33CDDF1D5B318D00995ED4 /* PostCell.xib */; };
-		8C33CDE31D5B324C00995ED4 /* Post.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C33CDE21D5B324C00995ED4 /* Post.m */; };
 		8C33CDE61D5B35FE00995ED4 /* CommentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C33CDE51D5B35FE00995ED4 /* CommentsViewController.m */; };
 		8C33CDE91D5B390100995ED4 /* CommentsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C33CDE81D5B390100995ED4 /* CommentsTableViewCell.m */; };
 		8C33CDEB1D5B391000995ED4 /* CommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C33CDEA1D5B391000995ED4 /* CommentCell.xib */; };
-		8C33CDEE1D5B39EA00995ED4 /* Comment.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C33CDED1D5B39EA00995ED4 /* Comment.m */; };
+		8C33CDF01D5C623A00995ED4 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C33CDEF1D5C623A00995ED4 /* CoreData.framework */; };
+		8C33CDF31D5C63DD00995ED4 /* ExceedItSampleApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8C33CDF11D5C63DD00995ED4 /* ExceedItSampleApp.xcdatamodeld */; };
+		8C33CEBA1D5C8ED900995ED4 /* Address+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C33CEA71D5C8ED900995ED4 /* Address+CoreDataProperties.m */; };
+		8C33CEBB1D5C8ED900995ED4 /* Address.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C33CEA91D5C8ED900995ED4 /* Address.m */; };
+		8C33CEBC1D5C8ED900995ED4 /* User+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C33CEAB1D5C8ED900995ED4 /* User+CoreDataProperties.m */; };
+		8C33CEBD1D5C8ED900995ED4 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C33CEAD1D5C8ED900995ED4 /* User.m */; };
+		8C33CEBE1D5C8ED900995ED4 /* Comment+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C33CEAF1D5C8ED900995ED4 /* Comment+CoreDataProperties.m */; };
+		8C33CEBF1D5C8ED900995ED4 /* Comment.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C33CEB11D5C8ED900995ED4 /* Comment.m */; };
+		8C33CEC01D5C8ED900995ED4 /* Post+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C33CEB31D5C8ED900995ED4 /* Post+CoreDataProperties.m */; };
+		8C33CEC11D5C8ED900995ED4 /* Post.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C33CEB51D5C8ED900995ED4 /* Post.m */; };
+		8C33CEC21D5C8ED900995ED4 /* Company+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C33CEB71D5C8ED900995ED4 /* Company+CoreDataProperties.m */; };
+		8C33CEC31D5C8ED900995ED4 /* Company.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C33CEB91D5C8ED900995ED4 /* Company.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,22 +74,38 @@
 		8C33CDD11D5B1DCC00995ED4 /* UserTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserTableViewCell.h; sourceTree = "<group>"; };
 		8C33CDD21D5B1DCC00995ED4 /* UserTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserTableViewCell.m; sourceTree = "<group>"; };
 		8C33CDD41D5B1DDD00995ED4 /* UserCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserCell.xib; sourceTree = "<group>"; };
-		8C33CDD61D5B23AB00995ED4 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
-		8C33CDD71D5B23AB00995ED4 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		8C33CDD91D5B2B3C00995ED4 /* UserPostsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserPostsViewController.h; sourceTree = "<group>"; };
 		8C33CDDA1D5B2B3C00995ED4 /* UserPostsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserPostsViewController.m; sourceTree = "<group>"; };
 		8C33CDDC1D5B317D00995ED4 /* PostTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostTableViewCell.h; sourceTree = "<group>"; };
 		8C33CDDD1D5B317D00995ED4 /* PostTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostTableViewCell.m; sourceTree = "<group>"; };
 		8C33CDDF1D5B318D00995ED4 /* PostCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostCell.xib; sourceTree = "<group>"; };
-		8C33CDE11D5B324C00995ED4 /* Post.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Post.h; sourceTree = "<group>"; };
-		8C33CDE21D5B324C00995ED4 /* Post.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Post.m; sourceTree = "<group>"; };
 		8C33CDE41D5B35FE00995ED4 /* CommentsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentsViewController.h; sourceTree = "<group>"; };
 		8C33CDE51D5B35FE00995ED4 /* CommentsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentsViewController.m; sourceTree = "<group>"; };
 		8C33CDE71D5B390100995ED4 /* CommentsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentsTableViewCell.h; sourceTree = "<group>"; };
 		8C33CDE81D5B390100995ED4 /* CommentsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentsTableViewCell.m; sourceTree = "<group>"; };
 		8C33CDEA1D5B391000995ED4 /* CommentCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommentCell.xib; sourceTree = "<group>"; };
-		8C33CDEC1D5B39EA00995ED4 /* Comment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Comment.h; sourceTree = "<group>"; };
-		8C33CDED1D5B39EA00995ED4 /* Comment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Comment.m; sourceTree = "<group>"; };
+		8C33CDEF1D5C623A00995ED4 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		8C33CDF21D5C63DD00995ED4 /* ExceedItSampleApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ExceedItSampleApp.xcdatamodel; sourceTree = "<group>"; };
+		8C33CEA61D5C8ED900995ED4 /* Address+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Address+CoreDataProperties.h"; path = "ExceedItSampleApp/Address+CoreDataProperties.h"; sourceTree = "<group>"; };
+		8C33CEA71D5C8ED900995ED4 /* Address+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Address+CoreDataProperties.m"; path = "ExceedItSampleApp/Address+CoreDataProperties.m"; sourceTree = "<group>"; };
+		8C33CEA81D5C8ED900995ED4 /* Address.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Address.h; path = ExceedItSampleApp/Address.h; sourceTree = "<group>"; };
+		8C33CEA91D5C8ED900995ED4 /* Address.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Address.m; path = ExceedItSampleApp/Address.m; sourceTree = "<group>"; };
+		8C33CEAA1D5C8ED900995ED4 /* User+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "User+CoreDataProperties.h"; path = "ExceedItSampleApp/User+CoreDataProperties.h"; sourceTree = "<group>"; };
+		8C33CEAB1D5C8ED900995ED4 /* User+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "User+CoreDataProperties.m"; path = "ExceedItSampleApp/User+CoreDataProperties.m"; sourceTree = "<group>"; };
+		8C33CEAC1D5C8ED900995ED4 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = User.h; path = ExceedItSampleApp/User.h; sourceTree = "<group>"; };
+		8C33CEAD1D5C8ED900995ED4 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = User.m; path = ExceedItSampleApp/User.m; sourceTree = "<group>"; };
+		8C33CEAE1D5C8ED900995ED4 /* Comment+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Comment+CoreDataProperties.h"; path = "ExceedItSampleApp/Comment+CoreDataProperties.h"; sourceTree = "<group>"; };
+		8C33CEAF1D5C8ED900995ED4 /* Comment+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Comment+CoreDataProperties.m"; path = "ExceedItSampleApp/Comment+CoreDataProperties.m"; sourceTree = "<group>"; };
+		8C33CEB01D5C8ED900995ED4 /* Comment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Comment.h; path = ExceedItSampleApp/Comment.h; sourceTree = "<group>"; };
+		8C33CEB11D5C8ED900995ED4 /* Comment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Comment.m; path = ExceedItSampleApp/Comment.m; sourceTree = "<group>"; };
+		8C33CEB21D5C8ED900995ED4 /* Post+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Post+CoreDataProperties.h"; path = "ExceedItSampleApp/Post+CoreDataProperties.h"; sourceTree = "<group>"; };
+		8C33CEB31D5C8ED900995ED4 /* Post+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Post+CoreDataProperties.m"; path = "ExceedItSampleApp/Post+CoreDataProperties.m"; sourceTree = "<group>"; };
+		8C33CEB41D5C8ED900995ED4 /* Post.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Post.h; path = ExceedItSampleApp/Post.h; sourceTree = "<group>"; };
+		8C33CEB51D5C8ED900995ED4 /* Post.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Post.m; path = ExceedItSampleApp/Post.m; sourceTree = "<group>"; };
+		8C33CEB61D5C8ED900995ED4 /* Company+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Company+CoreDataProperties.h"; path = "ExceedItSampleApp/Company+CoreDataProperties.h"; sourceTree = "<group>"; };
+		8C33CEB71D5C8ED900995ED4 /* Company+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Company+CoreDataProperties.m"; path = "ExceedItSampleApp/Company+CoreDataProperties.m"; sourceTree = "<group>"; };
+		8C33CEB81D5C8ED900995ED4 /* Company.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Company.h; path = ExceedItSampleApp/Company.h; sourceTree = "<group>"; };
+		8C33CEB91D5C8ED900995ED4 /* Company.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Company.m; path = ExceedItSampleApp/Company.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +113,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C33CDF01D5C623A00995ED4 /* CoreData.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -111,6 +137,7 @@
 		8C33CD531D5B12D800995ED4 = {
 			isa = PBXGroup;
 			children = (
+				8C33CDEF1D5C623A00995ED4 /* CoreData.framework */,
 				8C33CD5E1D5B12D800995ED4 /* ExceedItSampleApp */,
 				8C33CD781D5B12D800995ED4 /* ExceedItSampleAppTests */,
 				8C33CD831D5B12D800995ED4 /* ExceedItSampleAppUITests */,
@@ -135,26 +162,22 @@
 				8C33CD631D5B12D800995ED4 /* AppDelegate.m */,
 				8C33CD651D5B12D800995ED4 /* ViewController.h */,
 				8C33CD661D5B12D800995ED4 /* ViewController.m */,
-				8C33CDD61D5B23AB00995ED4 /* User.h */,
-				8C33CDD71D5B23AB00995ED4 /* User.m */,
 				8C33CDD11D5B1DCC00995ED4 /* UserTableViewCell.h */,
 				8C33CDD21D5B1DCC00995ED4 /* UserTableViewCell.m */,
 				8C33CDD41D5B1DDD00995ED4 /* UserCell.xib */,
 				8C33CDD91D5B2B3C00995ED4 /* UserPostsViewController.h */,
 				8C33CDDA1D5B2B3C00995ED4 /* UserPostsViewController.m */,
-				8C33CDE11D5B324C00995ED4 /* Post.h */,
-				8C33CDE21D5B324C00995ED4 /* Post.m */,
 				8C33CDDF1D5B318D00995ED4 /* PostCell.xib */,
 				8C33CDDC1D5B317D00995ED4 /* PostTableViewCell.h */,
 				8C33CDDD1D5B317D00995ED4 /* PostTableViewCell.m */,
 				8C33CDE41D5B35FE00995ED4 /* CommentsViewController.h */,
 				8C33CDE51D5B35FE00995ED4 /* CommentsViewController.m */,
-				8C33CDEC1D5B39EA00995ED4 /* Comment.h */,
-				8C33CDED1D5B39EA00995ED4 /* Comment.m */,
 				8C33CDEA1D5B391000995ED4 /* CommentCell.xib */,
 				8C33CDE71D5B390100995ED4 /* CommentsTableViewCell.h */,
 				8C33CDE81D5B390100995ED4 /* CommentsTableViewCell.m */,
 				8C33CD681D5B12D800995ED4 /* Main.storyboard */,
+				8C33CE691D5C6C4E00995ED4 /* Models */,
+				8C33CDF11D5C63DD00995ED4 /* ExceedItSampleApp.xcdatamodeld */,
 				8C33CD6B1D5B12D800995ED4 /* Assets.xcassets */,
 				8C33CD6D1D5B12D800995ED4 /* LaunchScreen.storyboard */,
 				8C33CD701D5B12D800995ED4 /* Info.plist */,
@@ -187,6 +210,34 @@
 				8C33CD861D5B12D800995ED4 /* Info.plist */,
 			);
 			path = ExceedItSampleAppUITests;
+			sourceTree = "<group>";
+		};
+		8C33CE691D5C6C4E00995ED4 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				8C33CEA61D5C8ED900995ED4 /* Address+CoreDataProperties.h */,
+				8C33CEA71D5C8ED900995ED4 /* Address+CoreDataProperties.m */,
+				8C33CEA81D5C8ED900995ED4 /* Address.h */,
+				8C33CEA91D5C8ED900995ED4 /* Address.m */,
+				8C33CEAA1D5C8ED900995ED4 /* User+CoreDataProperties.h */,
+				8C33CEAB1D5C8ED900995ED4 /* User+CoreDataProperties.m */,
+				8C33CEAC1D5C8ED900995ED4 /* User.h */,
+				8C33CEAD1D5C8ED900995ED4 /* User.m */,
+				8C33CEAE1D5C8ED900995ED4 /* Comment+CoreDataProperties.h */,
+				8C33CEAF1D5C8ED900995ED4 /* Comment+CoreDataProperties.m */,
+				8C33CEB01D5C8ED900995ED4 /* Comment.h */,
+				8C33CEB11D5C8ED900995ED4 /* Comment.m */,
+				8C33CEB21D5C8ED900995ED4 /* Post+CoreDataProperties.h */,
+				8C33CEB31D5C8ED900995ED4 /* Post+CoreDataProperties.m */,
+				8C33CEB41D5C8ED900995ED4 /* Post.h */,
+				8C33CEB51D5C8ED900995ED4 /* Post.m */,
+				8C33CEB61D5C8ED900995ED4 /* Company+CoreDataProperties.h */,
+				8C33CEB71D5C8ED900995ED4 /* Company+CoreDataProperties.m */,
+				8C33CEB81D5C8ED900995ED4 /* Company.h */,
+				8C33CEB91D5C8ED900995ED4 /* Company.m */,
+			);
+			name = Models;
+			path = ..;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -322,17 +373,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8C33CDD81D5B23AB00995ED4 /* User.m in Sources */,
+				8C33CEBD1D5C8ED900995ED4 /* User.m in Sources */,
+				8C33CDF31D5C63DD00995ED4 /* ExceedItSampleApp.xcdatamodeld in Sources */,
 				8C33CDD31D5B1DCC00995ED4 /* UserTableViewCell.m in Sources */,
+				8C33CEBB1D5C8ED900995ED4 /* Address.m in Sources */,
+				8C33CEBA1D5C8ED900995ED4 /* Address+CoreDataProperties.m in Sources */,
+				8C33CEC01D5C8ED900995ED4 /* Post+CoreDataProperties.m in Sources */,
 				8C33CD671D5B12D800995ED4 /* ViewController.m in Sources */,
-				8C33CDEE1D5B39EA00995ED4 /* Comment.m in Sources */,
+				8C33CEC21D5C8ED900995ED4 /* Company+CoreDataProperties.m in Sources */,
 				8C33CDDE1D5B317D00995ED4 /* PostTableViewCell.m in Sources */,
+				8C33CEBC1D5C8ED900995ED4 /* User+CoreDataProperties.m in Sources */,
 				8C33CD641D5B12D800995ED4 /* AppDelegate.m in Sources */,
+				8C33CEC11D5C8ED900995ED4 /* Post.m in Sources */,
+				8C33CEBE1D5C8ED900995ED4 /* Comment+CoreDataProperties.m in Sources */,
 				8C33CDE91D5B390100995ED4 /* CommentsTableViewCell.m in Sources */,
 				8C33CDE61D5B35FE00995ED4 /* CommentsViewController.m in Sources */,
 				8C33CD611D5B12D800995ED4 /* main.m in Sources */,
+				8C33CEBF1D5C8ED900995ED4 /* Comment.m in Sources */,
 				8C33CDDB1D5B2B3C00995ED4 /* UserPostsViewController.m in Sources */,
-				8C33CDE31D5B324C00995ED4 /* Post.m in Sources */,
+				8C33CEC31D5C8ED900995ED4 /* Company.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -576,6 +635,19 @@
 			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		8C33CDF11D5C63DD00995ED4 /* ExceedItSampleApp.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				8C33CDF21D5C63DD00995ED4 /* ExceedItSampleApp.xcdatamodel */,
+			);
+			currentVersion = 8C33CDF21D5C63DD00995ED4 /* ExceedItSampleApp.xcdatamodel */;
+			path = ExceedItSampleApp.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 8C33CD541D5B12D800995ED4 /* Project object */;
 }

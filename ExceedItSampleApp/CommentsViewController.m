@@ -23,6 +23,17 @@
 
 @implementation CommentsViewController
 
+
+- (NSManagedObjectContext *)managedObjectContext {
+    NSManagedObjectContext *context = nil;
+    id delegate = [[UIApplication sharedApplication] delegate];
+    if ([delegate performSelector:@selector(managedObjectContext)]) {
+        context = [delegate managedObjectContext];
+    }
+    return context;
+}
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -46,7 +57,7 @@
     commentsArray = [[NSMutableArray alloc]init];
     
     // REST CALL
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://jsonplaceholder.typicode.com/comments?postid=%@",self.post.postId]];
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://jsonplaceholder.typicode.com/comments?postId=%@",self.post.postId]];
     NSURLSession *session = [NSURLSession sharedSession];
     
     NSURLSessionDataTask * dataTask = [session dataTaskWithURL:url completionHandler:^(NSData *data, NSURLResponse *response, NSError *error){
@@ -67,19 +78,36 @@
                 // Handle Error and return
                 return;
             }
-            
+            NSManagedObjectContext *context = [self managedObjectContext];
             // Comments
             NSArray *commentsData = jsonObjects;
             for (int i=0; i < [commentsData count]; i++) {
-                NSDictionary *post = (NSDictionary*) [commentsData objectAtIndex:i];
-                Comment *commentObj = [[Comment alloc]init];
-                commentObj.commentId = [post objectForKey:@"id"];
-                commentObj.commentsTitle = [post objectForKey:@"name"];
-                commentObj.commenterEmail = [post objectForKey:@"email"];
-                commentObj.commentsBody = [post objectForKey:@"body"];
-                [commentsArray addObject:commentObj];
+                NSDictionary *comment = (NSDictionary*) [commentsData objectAtIndex:i];
+                
+                // Create a new post managed object
+                NSManagedObject *commentMO = [NSEntityDescription insertNewObjectForEntityForName:@"Comment" inManagedObjectContext:context];
+                [commentMO setValue:[comment objectForKey:@"name"] forKey:@"name"];
+                [commentMO setValue:[comment objectForKey:@"body"] forKey:@"body"];
+                [commentMO setValue:[comment objectForKey:@"email"] forKey:@"email"];
+                
+                // Add post to user
+                [commentMO setValue:self.post forKey:@"post"];
+                NSLog(@"commentMO: %@",commentMO);
+                
+                NSError *error = nil;
+                // Save the object to persistent store
+                if (![context save:&error]) {
+                    NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
+                }
             }
             dispatch_async(dispatch_get_main_queue(), ^{
+                
+                // Fetch the devices from persistent data store
+                NSManagedObjectContext *managedObjectContext = [self managedObjectContext];
+                NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Comment"];
+                commentsArray = [[managedObjectContext executeFetchRequest:fetchRequest error:nil] mutableCopy];
+                NSLog(@"commentsArray: %@",commentsArray);
+                
                 // Reload comments table content
                 [_commentsTable reloadData];
                 
@@ -128,9 +156,9 @@
     // Check if posts array is not null
     if ([commentsArray count]) {
         Comment *commentObj = (Comment*)[commentsArray objectAtIndex:indexPath.row];
-        cell.commentTitle.text = commentObj.commentsTitle;
-        cell.commenterEmail.text = commentObj.commenterEmail;
-        cell.commentBody.text = commentObj.commentsBody;
+        cell.commentTitle.text = commentObj.name;
+        cell.commenterEmail.text = commentObj.email;
+        cell.commentBody.text = commentObj.body;
     }
     
     return cell;

@@ -21,6 +21,17 @@
 
 @implementation UserPostsViewController
 
+- (NSManagedObjectContext *)managedObjectContext {
+    NSManagedObjectContext *context = nil;
+    id delegate = [[UIApplication sharedApplication] delegate];
+    if ([delegate performSelector:@selector(managedObjectContext)]) {
+        context = [delegate managedObjectContext];
+    }
+    return context;
+}
+
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -41,7 +52,7 @@
     postsArray = [[NSMutableArray alloc]init];
     
     // REST CALL
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://jsonplaceholder.typicode.com/posts?userid=%@",self.userId]];
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://jsonplaceholder.typicode.com/posts?userId=%@",self.user.userId]];
     NSURLSession *session = [NSURLSession sharedSession];
     
     NSURLSessionDataTask * dataTask = [session dataTaskWithURL:url completionHandler:^(NSData *data, NSURLResponse *response, NSError *error){
@@ -62,18 +73,36 @@
                 // Handle Error and return
                 return;
             }
-            
+            NSManagedObjectContext *context = [self managedObjectContext];
             // Posts
             NSArray *postsData = jsonObjects;
             for (int i=0; i < [postsData count]; i++) {
                 NSDictionary *post = (NSDictionary*) [postsData objectAtIndex:i];
-                Post *postObj = [[Post alloc]init];
-                postObj.postId = [post objectForKey:@"id"];
-                postObj.title = [post objectForKey:@"title"];
-                postObj.body = [post objectForKey:@"body"];
-                [postsArray addObject:postObj];
+                
+                // Create a new post managed object
+                NSManagedObject *postMO = [NSEntityDescription insertNewObjectForEntityForName:@"Post" inManagedObjectContext:context];
+                [postMO setValue:[post objectForKey:@"title"] forKey:@"title"];
+                [postMO setValue:[post objectForKey:@"body"] forKey:@"body"];
+                [postMO setValue:[[post objectForKey:@"id"] stringValue] forKey:@"postId"];
+                
+                // Add post to user
+                [postMO setValue:self.user forKey:@"user"];
+                NSLog(@"postMO: %@",postMO);
+                NSError *error = nil;
+                // Save the object to persistent store
+                if (![context save:&error]) {
+                    NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
+                }
             }
             dispatch_async(dispatch_get_main_queue(), ^{
+                
+                // Fetch the devices from persistent data store
+                NSManagedObjectContext *managedObjectContext = [self managedObjectContext];
+                NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Post"];
+                postsArray = [[managedObjectContext executeFetchRequest:fetchRequest error:nil] mutableCopy];
+                
+
+                
                 if ([postsArray count]) {
                     // Reload posts table content
                     [_postsTable reloadData];

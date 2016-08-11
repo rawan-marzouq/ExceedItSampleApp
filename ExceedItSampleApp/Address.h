@@ -1,5 +1,5 @@
 //
-//  Comment.h
+//  Address.h
 //  ExceedItSampleApp
 //
 //  Created by Rawan Marzouq on 8/11/16.
@@ -9,11 +9,11 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class Post;
+@class User;
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface Comment : NSManagedObject
+@interface Address : NSManagedObject
 
 // Insert code here to declare functionality of your managed object subclass
 
@@ -21,4 +21,4 @@ NS_ASSUME_NONNULL_BEGIN
 
 NS_ASSUME_NONNULL_END
 
-#import "Comment+CoreDataProperties.h"
+#import "Address+CoreDataProperties.h"

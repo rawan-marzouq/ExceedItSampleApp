@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "User.h"
 
 @interface UserPostsViewController : UIViewController
-@property (nonatomic,retain) NSString *userId;
+@property (nonatomic,retain) User *user;
 @end

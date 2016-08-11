@@ -2,19 +2,23 @@
 //  User.h
 //  ExceedItSampleApp
 //
-//  Created by Rawan Marzouq on 8/10/16.
+//  Created by Rawan Marzouq on 8/11/16.
 //  Copyright © 2016 Rawan. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreData/CoreData.h>
 
-@interface User : NSObject
-@property(strong,nonatomic) NSString *userId;
-@property(strong,nonatomic) NSString *name;
-@property(strong,nonatomic) NSString *phone;
-@property(strong,nonatomic) NSString *email;
-@property(strong,nonatomic) NSString *company;
-@property(strong,nonatomic) NSString *street;
-@property(strong,nonatomic) NSString *suite;
-@property(strong,nonatomic) NSString *city;
+@class Address, Company, Post;
+
+NS_ASSUME_NONNULL_BEGIN
+
+@interface User : NSManagedObject
+
+// Insert code here to declare functionality of your managed object subclass
+
 @end
+
+NS_ASSUME_NONNULL_END
+
+#import "User+CoreDataProperties.h"
